@@ -75,7 +75,7 @@ A: With the co-routines TS! Which currently has an implementation in VisualStudi
 T: Of the await pattern?
 A: Yes, of co-routines TS. It gives you the bare bone facilities to write that.
 T: Oh, wow.
-A: So co_await is your key word you use instead of await, and then the library writer has to provide support to make futures work with your co-routines and add them asychronously under the covers. 
+A: So co_await is your key word you use instead of await, and then the library writer has to provide support to make futures work with your co-routines and add them asynchronously under the covers. 
 T: Cool, we have to check that out because with this pattern, you can write the asyncs much easier, right? Otherwise, for example in boost::asio, you get this huge cascade of lambdas going down all the way.
 O: Just like Javascript callbacks.
 T: Yes, they are Javascript callbacks.
@@ -99,7 +99,7 @@ A: Oh yea. Lots of discussion, but nothing in the papers yet, in the actual stan
 (At 16:05 mp3)
 T: And then we were asking: what kind of other parallelizations would one want to have? Someone said: A parallelization like shells provide. So shell pipes actually are a very convenient way to express how to plug one program into another, right?
 A: Yes.
-T: The only intervace is a pipe stream. This is a really interesting idea I wouldn't have come up with that. But of course. these processes are run in paralllel and independently. 
+T: The only interface is a pipe stream. This is a really interesting idea I wouldn't have come up with that. But of course. these processes are run in parallel and independently. 
 A: Yes, there is a proposal for that as well.
 O: I think it is coming from Java8, they have implemented some streaming syntax.
 A: There are various things called channels and stuff. So, there is a concrete paper: https://isocpp.org/files/papers/n3534.html.
@@ -107,7 +107,7 @@ T: Great, we are crossing off every item on our wish list.
 O: Ok, so these pipelines can be used in parallel as well. So the idea is having buffers in between which are like a producer consumer queue, filled and emptied -- or what is the basic approach?
 T: Oh nice. So that is what I basically told you: We want to have multiple processes that to talk to each other via a very simple interface, and using these, you can chain functions -- these are functions right? Via some kind of queuing input and output streams.
 O: So this is basically also this parallel for functional programming.
-T: Right, so this is also our wish list for parallelization of functional programming in C++. So we basicall have a chain of functions, and if they branch out, you can run multiple of these in parallel. So taking the idea of functional programming, which is really popular, right? 
+T: Right, so this is also our wish list for parallelization of functional programming in C++. So we basically have a chain of functions, and if they branch out, you can run multiple of these in parallel. So taking the idea of functional programming, which is really popular, right? 
 A: I just posted a link to the SIMD paper as well [http://wg21.link/p0350]. About the n3534 paper: It is all about pipelines, and the leading example like unix pipelines, just like you would describe it.
 T: Nice.
 A: These are proposals, so they are not in the standard yet. But there is a lot of discussion in the committee about them. These are directions that people want to go. So you are not the first to come up with these ideas, but because you are not alone and people in the committee are actually discussing it, there is real reasonable chance that you will see something along these lines to come out.
@@ -173,7 +173,7 @@ A: Yes.
 T: There is no away around it. And even though we have so many possibilities now, it remains difficult. I guess I really have to get your book [https://www.cplusplusconcurrencyinaction.com] and we are probably going have a course for students to do C++ performance coding, and parallelization -- especially correctly parallelizing things -- is going to be a big part of it.
 A: Ok. Then you should get my book. There is a second edition that is currently only available as pdf because it is not finished yet.
 T: Ok, cool. Any questions left?
-O: Well, I missed the beginning, I was at the Robert Ramney table. I am happy that the technical part was no problem, and you seem to have covered a lot of topics -- when I am looking at the table and what I have heard at the end. Great. So, we have recorded this, I am really curious and will listen to it. And I will get back to you and show it to you before I publish it, so you can check it.
+O: Well, I missed the beginning, I was at the Robert Ramey table. I am happy that the technical part was no problem, and you seem to have covered a lot of topics -- when I am looking at the table and what I have heard at the end. Great. So, we have recorded this, I am really curious and will listen to it. And I will get back to you and show it to you before I publish it, so you can check it.
 A: Ok. It was nice speaking to you.
 T: Yes, definitely. It was nice speaking to you, thank you.
 A: Bye bye.
