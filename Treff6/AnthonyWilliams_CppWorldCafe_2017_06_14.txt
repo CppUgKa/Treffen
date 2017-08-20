@@ -38,9 +38,7 @@ A: The question is: advantages over what? What are the alternatives?
 O: I think it's two things: It's either the advantage over using some library that isn't portable, like pthreads. Or compared to the standard library support which we have in C++ or in other languages for threads.
 A: Yes, comparing the C++ standard library to the standard library from other languages.
 T: And the available parallelization libraries/things/features.
-A: I guess that also depends on what you are trying to achieve. One of the exciting things coming
-with C++17, which I know that Microsoft is actually be working on, and there is also the HPX
-implementation of [see http://stellar-group.org/2015/05/hpx-and-the-cpp-standard/ and http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4411.pdf], is the parallelization of the STL. 
+A: I guess that also depends on what you are trying to achieve. One of the exciting things coming with C++17, which I know that Microsoft is actually working on (and there is also the HPX implementation of http://stellar-group.org/2015/05/hpx-and-the-cpp-standard/ and http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4411.pdf), is the parallelization of the STL. 
 T: Oh right, we completely missed out on that. Yes, there is a parallel STL. So, actually, there is an older one, that's called MCSTL, and the gnu parallel version, that was initiated at our institute here. And Microsoft copied the idea ten years later and will hopefully make it correct this time -- production code and not academic code. Yes, that is definitely also important.
 
 (At 6:50)
@@ -127,7 +125,7 @@ O: Did we talk at all about the whole topic of synchronization? Because I am not
 T: I remember a long time ago Java boasting to be one of the few languages supporting threads and having synchronized functions. It is actually a good contrast to what we have in C++, I think. Even though we have a table full, do we have all of the aspects that parallelization has? I think we have at least one library for each aspect, for the different facets that parallelization encompasses, right?
 A: Yes
 O: But we have MPI which can work in the whole distributed memory situation, or multi-process parallelization, but we haven't written down any solution which supports this on C++ natively -- especially message passing.
-A: ???Well, I thought it's part of a standard.
+A: Well, I thought it's part of a standard.
 O: You mean for interprocess communication?
 O: Yes, like not just passing around pointers or blocks of data, but passing around things with semantics.
 O: But there are C libraries for message passing and interprocess communication.
@@ -138,7 +136,7 @@ A: Sends [???] about HPX.
 T: Oh, the HPX.
 A: Have you used HPX?
 T: I have heard of it.
-A: Ok. There was an implementation of the parallel STL, which is good. But also, they supposedly support multiprocess parallelism as well, seamlessly. So that ???takes on a lot of what MPI might cover; hopefully MPI is covered within HPX, too. Personally, I haven't tried HPX in the multiprocess facilities. I only used it inprocess, with threading. But it is supposed to work, and they work hard on that. It is the high performance computing team, they use it on big cluster systems.
+A: Ok. There was an implementation of the parallel STL, which is good. But also, they supposedly support multiprocess parallelism as well, seamlessly. So that takes on a lot of what MPI might cover; hopefully MPI is covered within HPX, too. Personally, I haven't tried HPX in the multiprocess facilities. I only used it inprocess, with threading. But it is supposed to work, and they work hard on that. It is the high performance computing team, they use it on big cluster systems.
 T: I have come across this before but haven't tried it. Supporting all of the high performance computers is really difficult. That is much of what I do: Thinking about how to program large computers and how to have an expressive language. And how to implement distributed algorithms that will do what the users wants, and chain these together.
 A: Yes.
 
