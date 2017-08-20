@@ -41,13 +41,13 @@ O: And every project needs to use this. So currently, I am just using reference-
 J: Or pass iterator-pairs!
 O: And even if you roll your own perfect solution, others still won't know how to use it.
 O: I wonder: Is it good to limit yourself to a certain setup of language features and learn how to write clean code with this limited set, or should you use everything?
-R: I guess this also depends on the team and what you are developing for. If the team is open to new features and willing to learn, you can explain the features to them. If they are reluctant and complain, then maybe it is not such a good idea.
+R: I guess this also depends on the team and what you are developing for. If the team is open to new features and willingng to learn, you can explain the features to them. If they are reluctant and complain, then maybe it is not such a good idea.
 J: ... or you get a new team. I was surprise at the lack of standard library support in the Atmel AVR. So there is definitely platforms where you are limited in what parts of the standard library you can use.
 R: They do not have any exceptions, and no allocations, right?
 J: I think that is correct, but not technical limitations of the hardware, but a decision by the library implementors. I have spent time playing with other tiny micro controllers, where you can do allocations and exceptions if you want to. You just risk that your code will quickly go beyond the size of the flash that you have available.
 O: But it is a reasonable design decision if you are saying that you have to manage memory by hand to squeeze out everything that you can. 
 R: But I guess AVR will go away any how!?
-O: Other example from the audio industry: To avoid hikups, you must make sure that the audio thread under no condition blocks. Now, memory allocations must at least have some mutex in them for multi-threading. So essentially, in the audio thread, you cannot use new.
+O: Other example from the audio industry: To avoid hiccups, you must make sure that the audio thread under no condition blocks. Now, memory allocations must at least have some mutex in them for multi-threading. So essentially, in the audio thread, you cannot use new.
 
 (At 16:40)
 R: Next question about becoming a good C++ developer: Are there certain character traits that a good C++ developer absolutely needs to have or that lead automatically to being a good C++ developer (e.g. curiosity, laziness, discipline). What do you think?
@@ -129,7 +129,7 @@ J: That is kind of a fascinating turn of events since computer science is based 
 R: We also touched upon the topic of dark matter programmers. Which I think is a term coined by you Jason, is that right?
 J: Oh no, I did not coin it; I might have repeated it at some point. Who coined it? I don't remember, sorry.
 R: Some of us got the impression that dark matter programmers are more abundant in C++ than in other programming languages. I think this is a point that one could discuss on its own, but what does it actually mean for being a good C++ developer? For example, for the community, a
-To explain for those who are not familiar with the term: A dark matter programmer is someone who takes input from blogs and books and learns about things, but does not give any of this back to the community, does not write blogposts themself, does not teach, does not spread the information. How detrimental is that to the community? Can you still be a good C++ developer if you are a dark matter programmer?
+To explain for those who are not familiar with the term: A dark matter programmer is someone who takes input from blogs and books and learns about things, but does not give any of this back to the community, does not write blogposts themselves, does not teach, does not spread the information. How detrimental is that to the community? Can you still be a good C++ developer if you are a dark matter programmer?
 J: Yes! I know some.
 O: Being good and being nice are two different things.
 O: Someone has to do the actual work, not everyone can teach.
