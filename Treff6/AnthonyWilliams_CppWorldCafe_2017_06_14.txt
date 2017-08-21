@@ -88,11 +88,11 @@ A: So Gor Nishanov has done presentations on it, particularly on CppCon last yea
 T: Wow, cool. I definitely have to check that one out. I haven't actually used too many asynchronous calls yet. I'm not quite sure why. I always go down to the usual std::thread versions. That's just old me coding.
 
 (At 12:33 mp3)
-T: We have more wishes. But since you already granted the first one, maybe we are going to get lucky with the second one as well. We were talking a lot about SIMD parallelization, and that writing it in C++ is currently like writing assembler code. At least in the old way of writing SIMD code. People usually also give all of the SIMD variables register names, right? We wish some nicer way to write SIMD programs using TMP and generative programmings. I think there is boost::SIMD that attempts this.
+T: We have more wishes. But since you already granted the first one, maybe we are going to get lucky with the second one as well. We were talking a lot about SIMD parallelization, and that writing it in C++ is currently like writing assembler code. At least in the old way of writing SIMD code. People usually also give all of the SIMD variables register names, right? We wish some nicer way to write SIMD programs using TMP and generative programmings. I think there is Boost.SIMD that attempts this.
 A: Yes, there is. 
-O: I mentioned a library. I am not sure of the name of the developer [???maybe Agner Fog or Tuomas Tonteri]; he wrote a huge manual for optimization in C++ and assembler. He also wrote a vector library, which you can use to write kind of high level code with SIMD registers, where you have the data type ???ivec4 which is for integers, with which you can do simple arithmetics and also more complex calls.
+O: I mentioned a library. I am not sure of the name of the developer [maybe Agner Fog or Tuomas Tonteri]; he wrote a huge manual for optimization in C++ and assembler. He also wrote a vector library, which you can use to write kind of high level code with SIMD registers, where you have the data type ivec4 which is for integers, with which you can do simple arithmetics and also more complex calls.
 O: I think there are a few libraries that allow some data structures and have backends for SIMD implementations, which take some of the problems away from the normale developer. And having that easier accessible would most likely help. 
-A: Yes, there are active proposals before the standard committee about having SIMD support.
+A: Yes, there are active proposals before the standard committee about having SIMD support [http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0203r0.html].
 T: So some kind of library. There is lots of work apparently on this, but no standardizations?
 A: Oh yea. Lots of discussion, but nothing in the papers yet, in the actual standard.
 
@@ -132,7 +132,7 @@ O: But there are C libraries for message passing and interprocess communication.
 O: But again, these C libraries don't use the huge type system of C++.
 O: Yes, but you loose that as soon as you cross process boundaries.
 O: You don't if you use something else.
-A: Sends [???] about HPX.
+A: [Sends https://github.com/STEllAR-GROUP/hpx about HPX]
 T: Oh, the HPX.
 A: Have you used HPX?
 T: I have heard of it.
