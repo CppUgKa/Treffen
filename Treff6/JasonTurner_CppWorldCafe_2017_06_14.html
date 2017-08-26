@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <link rel="stylesheet" type="text/css" href="textColors.css" />
+  </head>
+  <body>
+</p><p id="pGreen">Jason: Jason Turner (via Skype)
+</p><p id="pBlue">Robert: Robert Schneider (table host)
+</p><p id="pPurple">Other: other participants
+
+Greetings.
+</p><p id="pGreen">Jason: Interference with the other people, but let's see how it goes.
+</p><p id="pBlue">Robert: Summarizing the previous rounds would take very long, so I will focus on the open questions we have. In the first round, we ended up with three unanswered questions. Question 1: Is there a good free online modern C++ tutorial?
+</p><p id="pGreen">Jason: Not that I am aware of. Some came up on CppCast, but they have holes in them, i.e. parts with outdated C++ or not best practice.
+</p><p id="pBlue">Robert: Ok, we did not find anything there, either.
+
+</p><p id="pBlack">(At 2:15)
+</p><p id="pBlue">Robert: Question 2: How do you get to know the limit (eg in performance) of tools? Is there a general way to find and learn the limit? For instance, the limit of a feature of the language or of a library, such as the characteristics of a standard container? Is there a general way to learn about the limits of the tools?
+</p><p id="pPurple">Other: Get experience by using the tool?
+</p><p id="pGreen">Jason: Yes, use them! The way I learned most about C++ was by experimenting. I always have a Linux VM open where I can quickly use gcc and other compilers and try stuff. For instance experiment with growth factors of your containers, on multiple compilers. 
+</p><p id="pPurple">Other: I always have a playground project open in my IDE. It compiles in milliseconds as opposed to minutes, which my usual projects require.
+
+</p><p id="pBlack">(At 4:15)
+</p><p id="pBlue">Robert: At Question 3: What do you do when the compile time increases too much for some good C++ technique that you want to apply?
+</p><p id="pPurple">Other: Does that really happen?
+</p><p id="pBlue">Robert: Yes, for instance boost::spirit, qi or karma.
+</p><p id="pPurple">Other: I am not certain that abusing syntax overloading is a good C++ technique.
+</p><p id="pBlue">Robert: As another example, simply including std::unordered_map on Microsoft can include 60 kloc and cause the compile time to drop from e.g. half a second to 5.
+</p><p id="pGreen">Jason: I am not shocked that it includes 60 kloc; I am a little surprised that the compile time increases by 4 or 5 seconds.
+</p><p id="pBlue">Robert: This was just an example of how the use of an ordinary, good C++ technique can increase your compile time...
+</p><p id="pGreen">Jason: I have a different example, from a discussion I was just having with someone else: If you want to constexpr everywhere you can, then you need to move more stuff into the header. Which is then going to necessarily also increase your compile time. Maybe not orders of magnitude, but it will have an effect. What do you guys think about this? I use templates and constexpr all over the place, to get the compiler to do as much work as I can. But that does have a real cost! 
+</p><p id="pPurple">Other: Moving stuff into your header leads to mixed declarations and definitions, whereas a nice header with prototypes only gives a much better overview.
+</p><p id="pGreen">Jason: Right, but we can't throw away the advantages of using the compiler to do more work -- the advantages are too great. So I personally think the answer is: we just have to suck it up and be willing to take longer compile times. 
+
+</p><p id="pBlack">(At 8:30)
+</p><p id="pBlue">Robert: No other opinions on this. So, in our next round, we were talking about what actually is a good C++ developer. The question arose about using the standard library. People seem to assume that when you use the standard library, you are a good developer, and if you are not, you are a bad developer. What do you think about this?
+</p><p id="pPurple">Other: Depends on the part: If you are not using std::list because it is essentially useless, than that is a good thing. Or when you do not use std::unordered_map because allocating objects per pair on the heap is too slow for you, then you have a good reason. But there are no good reasons for not using std::vector (not having array_view yet).
+</p><p id="pBlue">Robert: The span should be in some of the TSs and in the next standard, right?
+</p><p id="pGreen">Jason: Generalized array_view is not, but string-view is.
+</p><p id="pPurple">Other: Awwwww :(
+</p><p id="pGreen">Jason: But it is only like 15 loc to roll your own, so throw one in and use it! I thought array_view would be in the next standard until a couple of months ago. But it is not because of the arguments that come up when you go past one dimension.
+.
+</p><p id="pPurple">Other: So we ignore the 99% of one-dimensional uses cases because of the 1% of multi-dimensional cases?
+</p><p id="pGreen">Jason: Come to a consensus for a design for more than one dimension!
+</p><p id="pBlue">Robert: I can tell a short story about this: I did actually roll my own array_view at work, and two other people did. Then we tried to reconcile this, where I did a code review on the solution from a colleague: I had about 200 comments about it and works about 2 person weeks on reviewing and redesigning the combined array_view. It was with checked iterators, to be honest, but the final solution had 300 loc + 300 loc for the checked iterators + 1200 loc for tests.
+</p><p id="pPurple">Other: And every project needs to use this. So currently, I am just using reference-to-const std::vector where I would have to use an array_view. 
+</p><p id="pGreen">Jason: Or pass iterator-pairs!
+</p><p id="pPurple">Other: And even if you roll your own perfect solution, others still won't know how to use it.
+</p><p id="pPurple">Other: I wonder: Is it good to limit yourself to a certain setup of language features and learn how to write clean code with this limited set, or should you use everything?
+</p><p id="pBlue">Robert: I guess this also depends on the team and what you are developing for. If the team is open to new features and willingng to learn, you can explain the features to them. If they are reluctant and complain, then maybe it is not such a good idea.
+</p><p id="pGreen">Jason: ... or you get a new team. I was surprise at the lack of standard library support in the Atmel AVR. So there is definitely platforms where you are limited in what parts of the standard library you can use.
+</p><p id="pBlue">Robert: They do not have any exceptions, and no allocations, right?
+</p><p id="pGreen">Jason: I think that is correct, but not technical limitations of the hardware, but a decision by the library implementors. I have spent time playing with other tiny micro controllers, where you can do allocations and exceptions if you want to. You just risk that your code will quickly go beyond the size of the flash that you have available.
+</p><p id="pPurple">Other: But it is a reasonable design decision if you are saying that you have to manage memory by hand to squeeze out everything that you can. 
+</p><p id="pBlue">Robert: But I guess AVR will go away any how!?
+</p><p id="pPurple">Other: Other example from the audio industry: To avoid hiccups, you must make sure that the audio thread under no condition blocks. Now, memory allocations must at least have some mutex in them for multi-threading. So essentially, in the audio thread, you cannot use new.
+
+</p><p id="pBlack">(At 16:40)
+</p><p id="pBlue">Robert: Next question about becoming a good C++ developer: Are there certain character traits that a good C++ developer absolutely needs to have or that lead automatically to being a good C++ developer (e.g. curiosity, laziness, discipline). What do you think?
+</p><p id="pGreen">Jason: I do not have any argument with those trades, and I may add: attention to detail. Because you need to think about what the compiler is doing with your code, also.
+</p><p id="pBlue">Robert: We were also discussing a question related to what the compiler does: What is specific about a good C++ developer as opposed to a good developer in general? This led to thinking about levels of abstraction: One of the pain points is that C++ tends to have many levels of abstractions, which you all need to consider. And on the other hand, you need to know when to go way down to the bare metal and when to not loose the abstractions.
+</p><p id="pGreen">Jason: Right.
+</p><p id="pPurple">Other: If you do not need the bare metal at any point, then what is the point of using C++?
+</p><p id="pBlue">Robert: So maybe the idea is then to know when to go down to the bare metal and when not to overthink it.
+</p><p id="pGreen">Jason: This is why I always also have a compiler explorer tab open: I try to program at the highest level I can.  If I have a technique that I am unsure of what the compiler is going to do with it, I check the compiler explorer. If I see that it is actually compiled down to something simple, great, I keep using the high-level technique.
+</p><p id="pBlue">Robert: Is that feasible even with complex projects, i.e. with thousands of files and several components interacting with each other?
+</p><p id="pGreen">Jason: Yes, I think sometimes it falls down once you start to get to a certain complexity. If you rely on the compiler doing constant folding and inlining of your code to make it all to just go away, once it reaches a certain complexity, you can no longer promise the compiler is going to do that -- even if you know it is capable of it. And then you wonder what happens if you write inline here, and it changes things a little bit in your final build of your project. I hate doing that because inline is just a hint anyhow. But I think 80% of the time using the compiler explorer is a good way to play with new techniques.
+But like anything else, you have to test it and measure it in your actual project, too.
+*Comment on our German beer drinking C++ meetup upon showing bottles in the camera*
+
+</p><p id="pBlack">(At 21:13)
+</p><p id="pBlue">Robert: We were also getting a point about having a mentor, and if you cannot get a mentor in person, that you should get a mentor from somewhere else, like books, tutorials, videos. But if you are a beginner, it is hard to tell about the quality of things. So if you are not an expert, how can you tell how good a book, tutorial, or video is?
+</p><p id="pGreen">Jason: Wow, that is really a good question.
+</p><p id="pPurple">Other: Reading a book is good if it is concise and in simple English.
+</p><p id="pPurple">Other: In my opinion, books are good for starting the language; for learning good coding, look at open source projects!
+</p><p id="pBlue">Robert: I think I can apply the question above also for open source projects, so: How do you find a good project? And then, how do you get into a complex projects, e.g. LLVM?
+</p><p id="pPurple">Other: You have to make little steps: Use a library and then look at how it is implemented.
+</p><p id="pPurple">Other: I think a pretty good indication for a good library is: "Does it have a reasonable documentation?".
+</p><p id="pGreen">Jason: Lets assume that LLVM is documented very well, for the sake of this argument. LLVM rolls all their own containers and has exceptions turned off globally. Are these the techniques that we say are good projects that everyone should be learning from?
+</p><p id="pPurple">Other: The google guys say "yes". 
+</p><p id="pBlue">Robert: I think the Google coding guidelines have a disclaimer that says that they apply in-house and you can learn from them, but they should not be applied generally. I think Google has problems with exception safety, which come from legacy code, and therefore they forbid the use of exceptions. 
+</p><p id="pPurple">Other: Yes, but also new code they write does not even try to make exceptions safe. That's not a way of solving the problem.
+</p><p id="pBlue">Robert: True. I guess you have to understand why a certain project chose certain limitations. I guess LLVM has a reason for writing their own containers, right?
+</p><p id="pGreen">Jason: Yes, for efficiency. They have their own small vector, small string, and stuff like that.
+</p><p id="pBlue">Robert: So you learn not only from the code but also at the design decisions, I guess. You cannot just open a file in the project and directly learn something from it that is generally applicable.
+</p><p id="pPurple">Other: Similar problem with books: They are often behind the state of the art.
+</p><p id="pPurple">Other: If the book is more abstract, e.g. about design decisions, then it is ok. Books about language features are quickly outdated; you can learn those on the internet.
+</p><p id="pPurple">Other: But it is hard to find on the internet how specific language features interact, for example auto and lambda functions in combination.
+</p><p id="pBlue">Robert: I see many people using std::function -- maybe they are familiar with this from C#. They combine lambda functions and std::function, but then you loose inlining.
+</p><p id="pGreen">Jason: Although I think the compiler can still inline sometimes. If your function falls into the small function optimization and everything is known, it can elide away the function.
+</p><p id="pPurple">Other: Yes, but the compiler needs to devirtualize the call, your std::function needs to be local, and you do not leak it anywhere, and optimizations are turned on.
+</p><p id="pGreen">Jason: To be clear, I was not try to advocating for using std::function, I was just thinking aloud that sometimes it can.
+</p><p id="pPurple">Other: It is relatively common that people store lambdas in std::function.
+</p><p id="pPurple">Other: Am I correct that you need to store the lambda in a std::function to be able to do recursion?
+</p><p id="pGreen">Jason: People have come up with tricks that don't require that, but I could be wrong.
+</p><p id="pPurple">Other: I think it depends: If it is a stateless lambda you could also use a function pointer.
+</p><p id="pBlue">Robert: I guess you can always call yourself by using this pointer and then the overloaded apply operator.
+</p><p id="pPurple">Other: I am not sure you can access that from lambdas. 
+</p><p id="pBlue">Robert: You are right. You would capture the name from the outside.
+</p><p id="pGreen">Jason: If you make a generic lambda, then you can pass yourself as one of your parameters, right.
+</p><p id="pPurple">Other: I don't think you can do that because the name of your auto is being deduced while you are writing your lambda, so I don't think that you can actually refer to that name.
+</p><p id="pGreen">Jason: Maybe not.
+</p><p id="pBlue">Robert: I remember this. Do you know Johannes Schaub? He is a guy on Stack Overflow who has many reputations. He covered this (see https://stackoverflow.com/questions/22236324/whats-wrong-with-this-recursive-polymorphic-c1y-lambda-call, https://stackoverflow.com/questions/25693676/auto-variable-used-in-lambda-in-its-own-initializer, https://stackoverflow.com/a/7861557, and https://stackoverflow.com/questions/2067988/recursive-lambda-functions-in-c11) because he tried to use a lambda function recursively and did not succeed. The reason was that he tried to deduce the return type using the lambda function itself. This does not work because it creates a cyclic dependency.
+</p><p id="pGreen">Jason: Right.
+</p><p id="pPurple">Other: The question is: Do you need to know this, full level, to be a good C++ developer?
+</p><p id="pPurple">Other: You maybe should. I think you might be able by using a generic lambda and the first argument is an auto reference and then pass the variable itself and use that in recursion by calling itself (see https://stackoverflow.com/a/40873505). No matter what you do, currently it's nasty. I think there was a standardization proposal to ease the burden a little bit. 
+
+</p><p id="pBlack">(At 34:10)
+</p><p id="pBlue">Robert: Jason, do you still have time.
+</p><p id="pGreen">Jason: I still have a few minutes, sure. I did have a quick question for your group, since we were just talking about books: I have heard people comment that they only read programming books in English because of the risk of translation errors. And if you were going to wait for a translation of a book, then you are really talking about an out-of-date book. No?
+</p><p id="pPurple">Other: I would not buy a book in German. They are full of strange bugs that lead you in the wrong direction.
+</p><p id="pPurple">Other: I once read a book where they badly translated all of the error messages that their API provided. When you read such an error message, you know absolutely not what they were talking about. 
+</p><p id="pBlue">Robert: By the way, this also concerns compilers: In a normal German VisualStudio setup, you will get a German error message, which is very hard to google. 
+</p><p id="pPurple">Other: The same things apply to gcc if your system is not set to English language; My current computer is the first one that is set to English by default, and I am lying about the country I am in. But now I don't have the trouble. About translated programming books: they also tend to cost a bit more.
+</p><p id="pGreen">Jason: Yes, so why spend extra money on a book that probably has extra bugs in it.
+</p><p id="pPurple">Other: I did learn C++ basically with the German wiki books. It was not great, but it worked.
+</p><p id="pGreen">Jason: Do you all speak English better than you would otherwise, because you are programmers?
+</p><p id="pPurple">Other: Yes. O: Yes. O: Yes. O: Yes. O: Yes. O: Yes.
+</p><p id="pGreen">Jason: Would it be fair to say that one key to being a good programmer is understanding English?
+</p><p id="pPurple">Other: Yes. O: Yes. O: Yes. O: Yes. O: Yes. O: Yes.
+</p><p id="pPurple">Other: The most nasty thing that you can imagine in programming in code not written in English.
+</p><p id="pBlue">Robert: Have you seen Russian or Chinese variable names? That is not very easy to understand.
+</p><p id="pPurple">Other: Or a German umlaut.
+</p><p id="pPurple">Other: That is not allowed in C++ comments.
+</p><p id="pPurple">Other: You can use them. I once created a program for an underhanded C contest, i.e. a contest about creating subtle security flaws that no one will find. I changed a normal "o" in a string to a cyrillic "o", which looks exactly the same, but was very evil in what it did. I once encountered a situation where unicode is actually nice: if you use physics units like square meters, you can write m^2 with the unicode  character for the power of two.
+</p><p id="pBlue">Robert: To get a slightly different perspective on this: I think it is also important to know English not just for asking questions online or reading books, but also to get into more expert level stuff: If you start reading the C++ standard or proposals, you have to know English. If you only know the German technical terms, you will have a hard time understanding anything. For me, it is the reverse: I mostly learn with English stuff and now if I try to read German stuff, I don't understand anything, because I don't know the German technical terms. 
+</p><p id="pGreen">Jason: That is amazing.
+</p><p id="pPurple">Other: I think there are no good German technical terms. 
+</p><p id="pPurple">Other: At university, there are very imaginative professors who make you use German technical terms like "Binder" for linker or "Kellerspeicher" for stack.
+</p><p id="pPurple">Other: "Keller" means basement and „Speicher" means memory. So we are not stacking things onto the top, but putting them below, in the basement. Why did somebody come up with that?
+</p><p id="pPurple">Other: I actually think the term is older and comes from theoretical computer science; it might be older in German than in English. But there are many horrible German technical terms. 
+</p><p id="pGreen">Jason: That is kind of a fascinating turn of events since computer science is based on math and a lot of old math terms come from Russian and Germanic languages.  
+
+</p><p id="pBlack">(At 41:10)
+</p><p id="pBlue">Robert: We also touched upon the topic of dark matter programmers. Which I think is a term coined by you Jason, is that right?
+</p><p id="pGreen">Jason: Oh no, I did not coin it; I might have repeated it at some point. Who coined it? I don't remember, sorry.
+</p><p id="pBlue">Robert: Some of us got the impression that dark matter programmers are more abundant in C++ than in other programming languages. I think this is a point that one could discuss on its own, but what does it actually mean for being a good C++ developer? For example, for the community, a
+To explain for those who are not familiar with the term: A dark matter programmer is someone who takes input from blogs and books and learns about things, but does not give any of this back to the community, does not write blogposts themselves, does not teach, does not spread the information. How detrimental is that to the community? Can you still be a good C++ developer if you are a dark matter programmer?
+</p><p id="pGreen">Jason: Yes! I know some.
+</p><p id="pPurple">Other: Being good and being nice are two different things.
+</p><p id="pPurple">Other: Someone has to do the actual work, not everyone can teach.
+</p><p id="pGreen">Jason: I do think though that the people who don't participate in IRC, twitter, or Slack or any of the forums, seem to be exposed to fewer ideas and less aware of where the community is going with best practices. But I do not know how many of these dark matter programmers are lurking on IRC, twitter, or whatever, reading but not mentioning anything themselves in public.
+</p><p id="pBlue">Robert: Another aspect: A dark matter programmer cannot get a code review from an entirely different point of view. They might be in a team, but only get general information from the outside. You cannot evaluate your own ideas.
+</p><p id="pGreen">Jason: Right. We know that there are tens of millions of C++ developers around the world, and you total up everyone going to conferences and you've get around 2000. That's not many people. Out of curiosity: Are you all going to Meeting C++ this year? Have you all bought your tickets yet? Where are you right now?
+</p><p id="pBlue">Robert: In Karlsruhe, that is in south west Germany.
+</p><p id="pGreen">Jason: Ok, so about as far away as you can get from Berlin -- but still.
+</p><p id="pPurple">Other: Well, at least we rescheduled one of our meetups to enable people going to Meeting C++ without missing a meeting from our C++ user group.
+</p><p id="pGreen">Jason: There you go.
+</p><p id="pBlue">Robert: So we are well aware of the conferences, I guess.
+</p><p id="pGreen">Jason: I am kind of hyper involved right now, so it is hard for me to get a perspective on what a person who is working 8 hours a day is doing.
+</p><p id="pBlue">Robert: But do you guys actually watch the Meeting C++ or the CppCon videos?
+</p><p id="pPurple">Other: Yes, but not all, because you need a full payed job to watch all of them.
+</p><p id="pBlue">Robert: I actually managed to watch all of the videos from CppCon 2015. But only a couple from CppCon 2016.
+</p><p id="pGreen">Jason: How is that even possible.
+</p><p id="pPurple">Other: I watch all of the CppCon 2017 videos because I was ill.
+</p><p id="pPurple">Other: That is like a 110 hours of videos.
+</p><p id="pBlue">Robert: I did this by speeding up to 1.5 times or 2 times. For most videos, 1.5 speed is perfectly understandable.
+</p><p id="pPurple">Other: At least, I watched all of the going native talks. My impression is that the quality went a little bit down when they introduced CppCon and went from the going native format. CppCon has a lot more range to what they are talking about.
+</p><p id="pGreen">Jason: Yes, going native is a smaller conference with probably hand-picked speakers.
+</p><p id="pBlue">Robert: By the way, a hint to presenters: It's easier to watch a video at 1.5 to 2 times speed if the speaker has a clear pronunciation and does not vary much in the speed of what they are talking. It is not necessarily you, but other presenters did this; they speak very quickly and then have long pauses. But you want to skip those long pauses without them speaking too fast. That's when you have to slow down to 1.5 times.
+</p><p id="pGreen">Jason: I have been told by an Italian and by a German that I do well with keeping good pronunciation and speed, but at my last talk at C++Now, I think I spoke way too fast through that one.
+</p><p id="pPurple">Other: Your speed is good.
+</p><p id="pBlue">Robert: But if you meet some other presenters, you maybe can tell them this.
+</p><p id="pGreen">Jason: Ok, I will keep that in mind.
+</p><p id="pBlue">Robert: I don't think that many people aware that their videos are being watched at higher speed.
+</p><p id="pGreen">Jason: I am aware because people tell me that they listen to CppCast and are watching my youtube videos at higher speed. But that does not effect how I present anything.
+
+</p><p id="pBlack">(At 47:40)
+</p><p id="pBlue">Robert: Another question: Is there a gap between C++ beginners and experts, or is this just a perceived gap and there are actually many intermediate developers in C++? How does the learning curve look like -- is it a steep? Or are you essentially a dark matter programmer when you are intermediate? The question came up because you see a lot of beginner and a lot of expert C++ questions on stack overflow, but not many intermediate C++ questions. This might be just a perception because when you are at an intermediate level, not many questions come up that you cannot answer yourself. But maybe your learning curve is so steep, that you essentially are either a beginner or directly something like an expert with deep domain level questions.
+</p><p id="pGreen">Jason: I think that most of the C++ developers, once they get past the beginner curve and are intermediate, they are like: "Now I know everything I need to know to get my job done", and they choose to not keep learning. Maybe it is not a conscious choice, but they think "Well, I am good, I know what I need to know". 
+</p><p id="pBlue">Robert: Yes, they focus on the work and get things done; and don't spend any more time on learning the language.
+</p><p id="pGreen">Jason: But it has been a while since I have worked in a regular office environment with other developers, so I don't know if that has changed. Or if I was just in a bubble in the offices that I worked in.
+</p><p id="pPurple">Other: Is this bad? If the people know everything that they need to know for their job, can you really call them bad programmers or anything? There is of course the need for some very extreme experts like the people who have implemented the standard library, and I expect them to know everything about the deep details of SFINAE and all the stuff, but 99% of programmers don't really need that. It maybe good that only a minority knows, understands and uses this, because this keeps it concentrated in closed libraries that hopefully have good APIs that your average Joe does not have to deal with the ugly internals.
+</p><p id="pGreen">Jason: That is a good point, too. And the people in your organization who are making the core libraries are probably a relatively small group. The balk group of programmers are probably just using them, and you want them to use it correctly and well.
+</p><p id="pBlue">Robert: Here is an example, an actual number from a big company that had a kind of a fork of the standard library, before C++11, which introduced allocator support and some other things that they need tighter control over: They had for a long time just half of the full time employees worked on this.
+</p><p id="pGreen">Jason: Oh.
+</p><p id="pPurple">Other: Hopefully in a different namespace.
+</p><p id="pBlue">Robert: Yes.
+</p><p id="pPurple">Other: If you look at the actual standard library, unless you really care about deep performance, a lot of it is surprisingly simple because it is so well designed that a lot of the functionality really is very simple functions that simply need to call other ones.  
+</p><p id="pBlue">Robert: You are talking about libc++, not libstdc++.
+</p><p id="pPurple">Other: I am talking about the standard algorithms headers in general. Of course you can put in an arbitrary amount of optimization in std::sort and std::find, but it is relatively easy to write a working version that is completely correct. So once you have it, it doesn't need much maintenance.
+</p><p id="pBlue">Robert: So my impression for libc++ is that it is quite well understandable. But every time I look into libstdc++, I am very confused -- starting with the indenting.
+</p><p id="pGreen">Jason: The stuff that either of them have to do to protect themselves, like putting all of their identifiers starting with underscores, I just find it difficult to read, regardless. Unless I need to set myself in that mentality.
+</p><p id="pBlue">Robert: What I was referring to with my example of half of full time employees: If you only have very few experts, you only can spend so much time of their time for the fundamental libraries, which are very important. So getting a better programmer is maybe also required because they need just to be more experts. And even if you have enough experts, if you can learn more and simplify your code more, maybe that is also a sufficient motivation.
+</p><p id="pPurple">Other: But you do not have to be a top level C++ programmer to write clean code.
+</p><p id="pBlue">Robert: That is true. But the more you know, the more you can apply: Maybe you do not have to remember everything, but you have to be able to see many things to be able to see if they apply to the stuff that you do. And then you eventually find some techniques that you can apply, and that will make you life easier. That's what I was referring to.
+</p><p id="pPurple">Other: But I don't think application programmers should deal with, for instance, advanced compile time meta programming. This is not something that you should do in the area of application programming. You can be a great application programmer and still not know about meta programming. So this is also a question about: You are an expert in what?
+</p><p id="pGreen">Jason: Right.
+</p><p id="pPurple">Other: But it is better to know about it. Because then these people get self confident if they see something that is great to them then they see what is going on there, and they have an idea what they can do.
+</p><p id="pPurple">Other: But the risk is, that eg some person just learned about SFINAE and goes along and applies it everywhere, making the code very unmaintainable.
+</p><p id="pPurple">Other: That would not be a good programmer.
+</p><p id="pPurple">Other: Fortunately, we have source code management systems.
+</p><p id="pBlue">Robert: I guess this comes down to discipline: If you just acquired knowledge about a new feature, you should have the discipline to not just apply it directly in production code, but play around with it, learn more about it, see it in examples, see what the disadvantages are, and if you are confident about it, then you might be able to start using it in production code.
+</p><p id="pPurple">Other: But I think you start to be a good C++ programmer long before you know all the details. A problem is people writing Java for a C++ compiler. Or a good fortran programmer, who can program fortran in any language; but that doesn't mean it's a good thing.
+
+</p><p id="pBlack">(At 56:03)
+</p><p id="pGreen">Jason: I should probably get off in a minute, btw.
+</p><p id="pBlue">Robert: Thanks for joining us then, and answering all the questions.
+</p><p id="pPurple">Other: Thanks a lot.
+</p><p id="pGreen">Jason: Sure. Is this the only table left now?
+</p><p id="pPurple">Other: Exactly.
+</p><p id="pGreen">Jason: Okay. It was fun joining you guys. 
+
+
+</body></html>
