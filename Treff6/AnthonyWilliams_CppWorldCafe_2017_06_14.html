@@ -4,56 +4,59 @@
     <link rel="stylesheet" type="text/css" href="textColors.css" />
   </head>
   <body>
-</p><p id="pGreen">Anthony: Anthony Williams
-</p><p id="pBlue">Timo: Timo Bingmann
-</p><p id="pPurple">Other: other participants
-
-</p><p id="pBlue">Timo: Introduces notes on table...
-
-</p><p id="pBlue">Timo: Hi Anthony. I am Timo. Nice talking to you.
+    <h1>Interview with Anthony Williams about parallelization</h1>
+    <h2>C++ World Caf&eacute at the C++ UG Karlsruhe on June 14th 2017</h2>
+    <p><img src="pics/AnthonyWilliams.jpg" alt="Anthony Williams" style="float:left;height:100px;margin:0px 10px;border-color:green;" border="4">
+    <span id="pGreen">Anthony: <a href="https://www.justsoftwaresolutions.co.uk">Anthony Williams</a> (via Skype)
+</br></br></span><span id="pBlue">Timo: <a href="https://panthema.net/about/">Timo Bingmann</a> (table host)
+</br></br></span><span id="pPurple">Other: other participants
+</span>
+</p>
+</br>
+<p id="pBlue">Timo: Hi Anthony. I am Timo. Nice talking to you.
 </p><p id="pGreen">Anthony: Hi.
 </p><p id="pPurple">Other: I am Tobias.
 </p><p id="pPurple">Other: And I am Markus.
-</p><p id="pBlue">Timo: We are joining you here from Karlsruhe. I had the pleasure of looking up your book this morning. We are probably going to get it because it contains a lot more information than I had expected. And maybe we are going to have to give it to our students, so they might have to learn it.
+</p><p id="pBlue">Timo: We are joining you here from Karlsruhe. I had the pleasure of looking up <a href="https://www.cplusplusconcurrencyinaction.com">your book</a> this morning. We are probably going to get it because it contains a lot more information than I had expected. And maybe we are going to have to give it to our students, so they might have to learn it.
 So: We managed in the last 1.5 hours to fill a table (can you see this?) with lots of nice ideas.
 </p><p id="pGreen">Anthony: Nice.
 </p><p id="pBlue">Timo: The topic was: "Which support and advantages does C++ have for parallelization?" I photographed the table for you; can you see the picture of our table?
 </p><p id="pGreen">Anthony: Yes, I can see writing on the table.
-</p><p id="pBlue">Timo: So, we found out that there are a lot of different frameworks that are available in C++. So there is the C++11 thread complex with std::atomics and so on. There is OpenMP, which we managed to distill down into two lines, because that's what everybody needs; and that's all you need to know. And interestingly, one of our people here was using Qt's threads, QThread, because everything is written in Qt in their application; and then they have to use QThread, and these are apparently very good. I mean they're pretty old as well, right?
+</p><p id="pBlue">Timo: So, we found out that there are a lot of different frameworks that are available in C++. So there is the C++11 thread complex with <a href="http://en.cppreference.com/w/cpp/atomic/atomic">std::atomics</a> and so on. There is <a href="http://www.openmp.org">OpenMP</a>, which we managed to distill down into two lines, because that's what everybody needs; and that's all you need to know. And interestingly, one of our people here was using Qt's threads, <a href="http://doc.qt.io/qt-5/thread-basics.html">QThread</a>, because everything is written in Qt in their application; and then they have to use QThread, and these are apparently very good. I mean they're pretty old as well, right?
 </p><p id="pGreen">Anthony: Yea.
-</p><p id="pBlue">Timo: And then we ventured into a different scape, namely SIMD parallelization.
+</p><p id="pBlue">Timo: And then we ventured into a different scape, namely <a href="https://en.wikipedia.org/wiki/SIMD">SIMD parallelization</a>.
 </p><p id="pGreen">Anthony: Oh -- yes.
 </p><p id="pBlue">Timo: What we didn't actually think about immediately because we were like: "parallelization is multi threaded stuff and not vectorization". But apparently, OpenMP also has SIMD support, and that seems to be more important these days than one would expect.
 </p><p id="pGreen">Anthony: Yes. Compilers do that, vectorize constructs directly - to some extent, anyways.
 </p><p id="pBlue">Timo: To some extent. But the thing is: you have to have some kind of guarantee (right?) that they will actually produce SIMD code. Yes, they do auto vectorization things.
 
-</p><p id="pBlack">(At 3:10, switches picture)
-</p><p id="pBlue">Timo: A lot of these things are random thoughts, of course. Let's see: Then people deviated into multi process parallelization, interestingly. And then the whole complex of interprocess communication comes up, where MPI is basically the standard solution. MPI is good but not perfect. It was good 20 years ago, nobody here knew whether it is still good.
+</p><p id="pBlack">(At 3:10)
+</p><p id="pBlue">Timo: A lot of these things are random thoughts, of course. Let's see: Then people deviated into multi process parallelization, interestingly. And then the whole complex of interprocess communication comes up, where <a href="http://mpi-forum.org">MPI</a> is basically the standard solution. MPI is good but not perfect. It was good 20 years ago, nobody here knew whether it is still good.
 </p><p id="pGreen">Anthony: I think people still use it, and it solves their problem. Particularly, people tend to use that more on cluster computers.
 </p><p id="pPurple">Other: I think it is mostly an HPC framework.
 </p><p id="pBlue">Timo: Yes. Somebody added that she is using it because of the many libraries that are available in MPI (sorry for the German notes, "Bibliothek" means library).
 </p><p id="pGreen">Anthony: That's ok.
-</p><p id="pBlue">Timo: So, due to the many libraries, particularly numeric computation libraries, that are in Open MPI, she uses Open MPI on a single computer. That is also parallelization of C++ code, right?
+</p><p id="pBlue">Timo: So, due to the many libraries, particularly numeric computation libraries, that are in <a href="https://www.open-mpi.org">Open MPI</a>, she uses Open MPI on a single computer. That is also parallelization of C++ code, right?
 </p><p id="pGreen">Anthony: Yes.
 </p><p id="pPurple">Other: And sometimes Fortran.
 </p><p id="pBlue">Timo: Right.
 
-</p><p id="pBlack">(At 4:40, 0:40 mp3)
+</p><p id="pBlack">(At 4:40)
 </p><p id="pBlue">Timo: Back to the first question: "Which support and advantages does C++ have for parallelization?". So, the support part was the easy part. The advantages was the hard part. Now I am interested: what are the advantages that you would name?
 </p><p id="pGreen">Anthony: The question is: advantages over what? What are the alternatives?
-</p><p id="pPurple">Other: I think it's two things: It's either the advantage over using some library that isn't portable, like pthreads. Or compared to the standard library support which we have in C++ or in other languages for threads.
+</p><p id="pPurple">Other: I think it's two things: It's either the advantage over using some library that isn't portable, like <a href="http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/pthread.h.html">pthreads</a>. Or compared to the standard library support which we have in C++ or in other languages for threads.
 </p><p id="pGreen">Anthony: Yes, comparing the C++ standard library to the standard library from other languages.
 </p><p id="pBlue">Timo: And the available parallelization libraries/things/features.
 </p><p id="pGreen">Anthony: I guess that also depends on what you are trying to achieve. One of the exciting things coming with C++17, which I know that Microsoft is actually working on (and there is also the HPX implementation of http://stellar-group.org/2015/05/hpx-and-the-cpp-standard/ and http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/n4411.pdf), is the parallelization of the STL. 
-</p><p id="pBlue">Timo: Oh right, we completely missed out on that. Yes, there is a parallel STL. So, actually, there is an older one, that's called MCSTL, and the gnu parallel version, that was initiated at our institute here. And Microsoft copied the idea ten years later and will hopefully make it correct this time -- production code and not academic code. Yes, that is definitely also important.
+</p><p id="pBlue">Timo: Oh right, we completely missed out on that. Yes, there is a parallel STL. So, actually, there is an older one, that's called <a href="https://algo2.iti.kit.edu/singler/mcstl/">MCSTL</a>, and <a href="https://gcc.gnu.org/onlinedocs/libstdc++/manual/parallel_mode.html">the gnu parallel version</a>, that was initiated at our institute here. And Microsoft copied the idea ten years later and will hopefully make it correct this time -- production code and not academic code. Yes, that is definitely also important.
 
-</p><p id="pBlack">(At 6:50)
-So other advantages are the usual things: zero cost abstraction and full control over what your code is. So what I added is the expression power, but also the expression safety that you have in C++: that your C++ code executes these statements in this order, right? So, the safety to work in parallel, i.e. that your code is optimized, but not weirdly enough that it will interfere with the parallelizations.
-</p><p id="pGreen">Anthony: Yes, you should use the synchronization tool that we've got. And that gives you quite a lot of scope for that, to make sure that everything is suitably serialized.
+</p><p id="pBlack">(At 6:55)
+</p><p id="pBlue">Timo: So other advantages are the usual things: zero cost abstraction and full control over what your code is. So what I added is the expression power, but also the expression safety that you have in C++: that your C++ code executes these statements in this order, right? So, the safety to work in parallel, i.e. that your code is optimized, but not weirdly enough that it will interfere with the parallelizations.
+</p><p id="pGreen">Anthony: Yes, you should use <a href="https://www.justsoftwaresolutions.co.uk/threading/locks-mutexes-semaphores.html">the synchronization tool that we've got</a>. And that gives you quite a lot of scope for that, to make sure that everything is suitably serialized.
 </p><p id="pBlue">Timo: ...that it doesn't change too much in your code. Maybe that's a different way to express it.
 </p><p id="pGreen">Anthony: Yes.
 </p><p id="pPurple">Other: But I think the semantics of these synchronization tools are also sometimes a bit weird; or for somebody who hasn't done a lot of work in parallelization, getting into this whole tool set isn't that easy -- it wasn't that easy for me.
-</p><p id="pBlue">Timo: And one of the other big advantages that then someone came up with is thread sanitizer, interestingly enough. Even though it is a tool, I don't believe any other language has a good tool for machine-close parallelization; for checking, to write correct parallel code so close to the machine.
+</p><p id="pBlue">Timo: And one of the other big advantages that then someone came up with is <a href="https://github.com/google/sanitizers/wiki/ThreadSanitizerCppManual">thread sanitizer (TSan)</a>, interestingly enough. Even though it is a tool, I don't believe any other language has a good tool for machine-close parallelization; for checking, to write correct parallel code so close to the machine.
 </p><p id="pGreen">Anthony: Yes. I am just trying to have a think -- I can't think of any.
 </p><p id="pBlue">Timo: So thread sanitizer is amazing, right? And without thread sanitizer, you basically have to think about each statement and if each statement has some kind of race condition and indeterminism inside it. Even though it is a tool and not part of the language, it's still really a game changer for parallelization. That's what we wrote here. Interesting, right?
 </p><p id="pGreen">Anthony: Yes.
@@ -61,73 +64,73 @@ So other advantages are the usual things: zero cost abstraction and full control
 </p><p id="pGreen">Anthony: I think people would contend the idea of being the first tool on that... to some extent others have done that for 20 years. 
 </p><p id="pBlue">Timo: Yes. There are lots of simulators, not instrumentations, that would do that as well. But you can't write a huge program like Chrome with that.
 </p><p id="pGreen">Anthony: No. Thread sanitizer is very good and available to use.
-</p><p id="pBlue">Timo: And the last advantage that we wrote down is the portable support of the memory model that is engrained in the atomics. The portability is the important part.
+</p><p id="pBlue">Timo: And the last advantage that we wrote down is the portable support of <a href="http://en.cppreference.com/w/cpp/language/memory_model">the memory model</a> that is engrained in the atomics. The portability is the important part.
 </p><p id="pGreen">Anthony: Yes. That is one of the key things, in my point of view, that we got out of the C++11 standard: the concrete memory model.
 </p><p id="pBlue">Timo: And that it is portable also onto weird processors, however well it is portable, right? That is, of course, the question.
 </p><p id="pGreen">Anthony: Yes.
 
-</p><p id="pBlack">(At 10:45)
+</p><p id="pBlack">(At 10:55)
 </p><p id="pBlue">Timo: Those were the advantages that we came up with. We worked very hard, we left out all the disadvantages... Do you have an idea what we could add to our table?
 </p><p id="pGreen">Anthony: Hm. I think to a large extent, one of the key benefits from using C++ for your parallelization, is that it's C++. And so it is inherently close to the metal and you get the full scope of optimizations that you get for serial code. And then that's now available for your parallel code, too. If you are writing, on the other extreme, parallel code in Python, then you miss out on a lot of optimizations for the potential for making your code actually to some extent quicker to write for some aspects.
 </p><p id="pBlue">Timo: So the closeness to the bare metal of C++ enables you to use all of the optimizations.
-</p><p id="pGreen">Anthony: Yes. For example, Microsoft's trying very hard for the optimizing compiler for C#, but it's no way near up to the scope of their C++ optimizer. And so even if it is compiling to native code rather then Bytecode, like the JIT compiler does, it doesn't reach the level of performance for actual CPU intensive code.
+</p><p id="pGreen">Anthony: Yes. For example, Microsoft's trying very hard for <a href="https://www.dotnetperls.com/optimization">the optimizing compiler for C#</a>, but it's no way near up to the scope of their C++ optimizer. And so even if it is compiling to native code rather then Bytecode, like the JIT compiler does, it doesn't reach the level of performance for actual CPU intensive code.
 </p><p id="pBlue">Timo: Yes. If you think about how much decades of man power have been put into the gcc or clang optimizers, it is mind boggling.
 
-</p><p id="pBlack">(At 12:05, switches picture)
+</p><p id="pBlack">(At 12:55)
 </p><p id="pBlue">Timo: Interestingly, we have a wish list. We wrote down advantages and a wish list. The await async pattern from C#. Do you know that one?
 </p><p id="pGreen">Anthony: Yes.
-</p><p id="pBlue">Timo: Apparently await is a keyword and does magic chaining of future results. People wanted that here, badly.
-</p><p id="pGreen">Anthony: With the co-routines TS! Which currently has an implementation in VisualStudio, and as of last week clang has an implementation.
+</p><p id="pBlue">Timo: Apparently await is a keyword and does magic chaining of <a href="http://en.cppreference.com/w/cpp/thread/future">future</a> results. People wanted that here, badly.
+</p><p id="pGreen">Anthony: With <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/n4680.pdf">the coroutines TS</a>! Which currently has an implementation in VisualStudio, and as of last week clang has an implementation.
 </p><p id="pBlue">Timo: Of the await pattern?
-</p><p id="pGreen">Anthony: Yes, of co-routines TS. It gives you the bare bone facilities to write that.
+</p><p id="pGreen">Anthony: Yes, of coroutines TS. It gives you the bare bone facilities to write that.
 </p><p id="pBlue">Timo: Oh, wow.
-</p><p id="pGreen">Anthony: So co_await is your key word you use instead of await, and then the library writer has to provide support to make futures work with your co-routines and add them asynchronously under the covers. 
-</p><p id="pBlue">Timo: Cool, we have to check that out because with this pattern, you can write the asyncs much easier, right? Otherwise, for example in boost::asio, you get this huge cascade of lambdas going down all the way.
+</p><p id="pGreen">Anthony: So <a href="http://cpp.mimuw.edu.pl/files/await-yield-c++-coroutines.pdf">co_await</a> is your key word you use instead of await, and then the library writer has to provide support to make futures work with your coroutines and add them asynchronously under the covers. 
+</p><p id="pBlue">Timo: Cool, we have to check that out because with this pattern, you can write the asyncs much easier, right? Otherwise, for example in <a href="http://www.boost.org/doc/libs/master/doc/html/boost_asio.html">Boost.Asio</a>, you get this huge cascade of lambdas going down all the way.
 </p><p id="pPurple">Other: Just like Javascript callbacks.
 </p><p id="pBlue">Timo: Yes, they are Javascript callbacks.
 </p><p id="pGreen">Anthony: Yes, it is exactly the same: callback hell.
 </p><p id="pBlue">Timo: With this co_await and support, that would be really cool, I have to check it out.
-</p><p id="pPurple">Other: I think there have been some macro and TMP approaches for co-routines, but they are a bit ugly and don't work in all cases, if I recall correctly.
+</p><p id="pPurple">Other: I think there have been some macro and TMP approaches for coroutines, but they are a bit ugly and don't work in all cases, if I recall correctly.
 </p><p id="pGreen">Anthony: Yes, so: VS 2017 does it, and clang 5 on trunk.
 </p><p id="pPurple">Other: I think I saw a demonstration in the VS code, where somebody implemented these.
-</p><p id="pGreen">Anthony: So Gor Nishanov has done presentations on it, particularly on CppCon last year [https://www.youtube.com/watch?v=8C8NnE1Dg4A]. He called it the magic disappearing co-routines, about how their code simplifies down, so actually there is no overhead at all and it looks just like straight code to me. But there is also the potential for making that work with async aided parallelism.
+</p><p id="pGreen">Anthony: So Gor Nishanov has done presentations on it, particularly <a href="https://www.youtube.com/watch?v=8C8NnE1Dg4A">on CppCon last year</a>. He called it the magic disappearing coroutines, about how their code simplifies down, so actually there is no overhead at all and it looks just like straight code to me. But there is also the potential for making that work with async aided parallelism.
 </p><p id="pBlue">Timo: Wow, cool. I definitely have to check that one out. I haven't actually used too many asynchronous calls yet. I'm not quite sure why. I always go down to the usual std::thread versions. That's just old me coding.
 
-</p><p id="pBlack">(At 12:33 mp3)
-</p><p id="pBlue">Timo: We have more wishes. But since you already granted the first one, maybe we are going to get lucky with the second one as well. We were talking a lot about SIMD parallelization, and that writing it in C++ is currently like writing assembler code. At least in the old way of writing SIMD code. People usually also give all of the SIMD variables register names, right? We wish some nicer way to write SIMD programs using TMP and generative programmings. I think there is Boost.SIMD that attempts this.
+</p><p id="pBlack">(At 16:40)
+</p><p id="pBlue">Timo: We have more wishes. But since you already granted the first one, maybe we are going to get lucky with the second one as well. We were talking a lot about SIMD parallelization, and that writing it in C++ is currently like writing assembler code. At least in the old way of writing SIMD code. People usually also give all of the SIMD variables register names, right? We wish some nicer way to write SIMD programs using TMP and generative programmings. I think there is <a href="https://github.com/NumScale/boost.simd">Boost.SIMD</a> that attempts this.
 </p><p id="pGreen">Anthony: Yes, there is. 
-</p><p id="pPurple">Other: I mentioned a library. I am not sure of the name of the developer [maybe Agner Fog or Tuomas Tonteri]; he wrote a huge manual for optimization in C++ and assembler. He also wrote a vector library, which you can use to write kind of high level code with SIMD registers, where you have the data type ivec4 which is for integers, with which you can do simple arithmetics and also more complex calls.
+</p><p id="pPurple">Other: I mentioned a library. I am not sure of the name of the developer [maybe <a href="http://www.agner.org/optimize/">Agner Fog</a> or <a href="http://sci.tuomastonteri.fi/programming/sse">Tuomas Tonteri</a>?]; he wrote a huge manual for optimization in C++ and assembler. He also wrote a vector library, which you can use to write kind of high level code with SIMD registers, where you have the data type <a href="http://sci.tuomastonteri.fi/programming/sse/6">ivec4</a> which is for integers, with which you can do simple arithmetics and also more complex calls.
 </p><p id="pPurple">Other: I think there are a few libraries that allow some data structures and have backends for SIMD implementations, which take some of the problems away from the normale developer. And having that easier accessible would most likely help. 
-</p><p id="pGreen">Anthony: Yes, there are active proposals before the standard committee about having SIMD support [http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0203r0.html].
+</p><p id="pGreen">Anthony: Yes, there are <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0203r0.html">active proposals</a> before the standard committee about having SIMD support.
 </p><p id="pBlue">Timo: So some kind of library. There is lots of work apparently on this, but no standardizations?
 </p><p id="pGreen">Anthony: Oh yea. Lots of discussion, but nothing in the papers yet, in the actual standard.
 
-</p><p id="pBlack">(At 16:05 mp3)
+</p><p id="pBlack">(At 20:10)
 </p><p id="pBlue">Timo: And then we were asking: what kind of other parallelizations would one want to have? Someone said: A parallelization like shells provide. So shell pipes actually are a very convenient way to express how to plug one program into another, right?
 </p><p id="pGreen">Anthony: Yes.
 </p><p id="pBlue">Timo: The only interface is a pipe stream. This is a really interesting idea I wouldn't have come up with that. But of course. these processes are run in parallel and independently. 
 </p><p id="pGreen">Anthony: Yes, there is a proposal for that as well.
-</p><p id="pPurple">Other: I think it is coming from Java8, they have implemented some streaming syntax.
-</p><p id="pGreen">Anthony: There are various things called channels and stuff. So, there is a concrete paper: https://isocpp.org/files/papers/n3534.html.
+</p><p id="pPurple">Other: I think it is coming from Java8, they have implemented some <a href="https://docs.oracle.com/javase/8/docs/api/java/util/stream/package-summary.html">streaming</a> syntax.
+</p><p id="pGreen">Anthony: There are various things called channels and stuff. So, there is <a href="https://isocpp.org/files/papers/n3534.html">a concrete paper</a>.
 </p><p id="pBlue">Timo: Great, we are crossing off every item on our wish list.
 </p><p id="pPurple">Other: Ok, so these pipelines can be used in parallel as well. So the idea is having buffers in between which are like a producer consumer queue, filled and emptied -- or what is the basic approach?
-</p><p id="pBlue">Timo: Oh nice. So that is what I basically told you: We want to have multiple processes that to talk to each other via a very simple interface, and using these, you can chain functions -- these are functions right? Via some kind of queuing input and output streams.
+</p><p id="pBlue">Timo: Oh nice. So that is what I basically told you: We want to have multiple processes that talk to each other via a very simple interface, and using these, you can chain functions -- these are functions right? Via some kind of queuing input and output streams.
 </p><p id="pPurple">Other: So this is basically also this parallel for functional programming.
 </p><p id="pBlue">Timo: Right, so this is also our wish list for parallelization of functional programming in C++. So we basically have a chain of functions, and if they branch out, you can run multiple of these in parallel. So taking the idea of functional programming, which is really popular, right? 
-</p><p id="pGreen">Anthony: I just posted a link to the SIMD paper as well [http://wg21.link/p0350]. About the n3534 paper: It is all about pipelines, and the leading example like unix pipelines, just like you would describe it.
+</p><p id="pGreen">Anthony: I just posted <a href="http://wg21.link/p0350">a link to the SIMD paper as well</a>. About the n3534 paper: It is all about pipelines, and the leading example like unix pipelines, just like you would describe it.
 </p><p id="pBlue">Timo: Nice.
 </p><p id="pGreen">Anthony: These are proposals, so they are not in the standard yet. But there is a lot of discussion in the committee about them. These are directions that people want to go. So you are not the first to come up with these ideas, but because you are not alone and people in the committee are actually discussing it, there is real reasonable chance that you will see something along these lines to come out.
 </p><p id="pBlue">Timo: Wow -- these are so many topics. So parallelization has so many things in its scope. The topic is huge and difficult.
-</p><p id="pGreen">Anthony: Yes. Everyone comes up with new libraries and facilities to try to make things easier. Paul E. McKenney from IBM, who works on the Linux kernel, wrote an ebook [https://www.kernel.org/pub/linux/kernel/people/paulmck/perfbook/perfbook.html] called "Is Parallel Programming Hard, And, If So, What Can You Do About It?". There's a whole lot of patents in there on how to deal with various issues. 
-</p><p id="pBlue">Timo: There was also a book called something like "parallel programming patterns", as an equivalent to software design patterns. I think it was also the basis for the TBB library (which apparently did not make an appearance on our table yet, but of course the TBB is very important). The TBB library tries out all of these parallelization patterns. But the parallelization in C++ is of course much more and and much more difficult and complex, right?
+</p><p id="pGreen">Anthony: Yes. Everyone comes up with new libraries and facilities to try to make things easier. Paul E. McKenney from IBM, who works on the Linux kernel, wrote <a href="https://www.kernel.org/pub/linux/kernel/people/paulmck/perfbook/perfbook.html">an ebook called "Is Parallel Programming Hard, And, If So, What Can You Do About It?"</a>. There's a whole lot of patents in there on how to deal with various issues. 
+</p><p id="pBlue">Timo: There was also a book called something like "parallel programming patterns" [maybe <a href="https://books.google.de/books/about/Structured_Parallel_Programming.html?id=2hYqeoO8t8IC&printsec=frontcover&source=kp_read_button&redir_esc=y#v=onepage&q&f=false">Structured Parallel Programming: Patterns for Efficient Computation</a>?], as an equivalent to software design patterns. I think it was also the basis for <a href="https://www.threadingbuildingblocks.org">the Intel Thread Building Block (TBB) library</a> (which apparently did not make an appearance on our table yet, but of course the TBB is very important). The TBB library tries out all of these parallelization patterns. But the parallelization in C++ is of course much more and much more difficult and complex, right?
 </p><p id="pGreen">Anthony: Yes, TBB is an important library. And yes, there is a lot. But it all depends on how you are structuring your program, as to which are the best libraries and things to use, and how you want to structure and what support you need.
 </p><p id="pBlue">Timo: That's also the only disadvantage that I wrote down: The huge amount of choice you have. 
 </p><p id="pGreen">Anthony: Yes, there isn't one standard way to do it.
 </p><p id="pBlue">Timo: That is always one of the critique points of C++: That you have so many ways to do something. That makes people insecure. We now filled one table of all the support that offers parallelization, and it is still difficult.
 </p><p id="pGreen">Anthony: Parallelism requires more thought and more care.
 
-</p><p id="pBlack">(At 23:55 mp3)
-</p><p id="pPurple">Other: Did we talk at all about the whole topic of synchronization? Because I am not sure at which time these atomics and mutexes appeared in the standard. They also provide us with the tools I know mostly from other languages, which already had implemented them. I think some of the features of C++ make it really nice and easy to use them. For example, in Java we had these synchronize blocks where we had to explicitly state which part is synchronized, and in C++ we can do basically the same with the lock guards, which is scoped by RAII. I think all these language features also allow us to get some kind of safer implementation than just locking a mutex and explicitly unlocking it, which sometimes can lead to difficult race conditions or difficult deadlocks.
+</p><p id="pBlack">(At 28:00)
+</p><p id="pPurple">Other: Did we talk at all about the whole topic of synchronization? Because I am not sure at which time these atomics and mutexes appeared in the standard. They also provide us with the tools I know mostly from other languages, which already had implemented them. I think some of the features of C++ make it really nice and easy to use them. For example, in Java we had these synchronize blocks where we had to explicitly state which part is synchronized, and in C++ we can do basically the same with <a href="http://en.cppreference.com/w/cpp/thread/lock_guard">the lock_guards</a>, which is scoped by RAII. I think all these language features also allow us to get some kind of safer implementation than just locking a mutex and explicitly unlocking it, which sometimes can lead to difficult race conditions or difficult deadlocks.
 </p><p id="pBlue">Timo: I remember a long time ago Java boasting to be one of the few languages supporting threads and having synchronized functions. It is actually a good contrast to what we have in C++, I think. Even though we have a table full, do we have all of the aspects that parallelization has? I think we have at least one library for each aspect, for the different facets that parallelization encompasses, right?
 </p><p id="pGreen">Anthony: Yes
 </p><p id="pPurple">Other: But we have MPI which can work in the whole distributed memory situation, or multi-process parallelization, but we haven't written down any solution which supports this on C++ natively -- especially message passing.
@@ -146,29 +149,32 @@ So other advantages are the usual things: zero cost abstraction and full control
 </p><p id="pBlue">Timo: I have come across this before but haven't tried it. Supporting all of the high performance computers is really difficult. That is much of what I do: Thinking about how to program large computers and how to have an expressive language. And how to implement distributed algorithms that will do what the users wants, and chain these together.
 </p><p id="pGreen">Anthony: Yes.
 
-</p><p id="pBlack">(At 29:10 mp3)
+</p><p id="pBlack">(At 33:15)
 </p><p id="pBlue">Timo: So: did we miss some things?
-</p><p id="pGreen">Anthony: Yes. I saw on your picture that you had a little reference next to futures, which said ".then". That is in the concurrency TS, which you haven't written down there.
+</p><p id="pGreen">Anthony: Yes. I saw on your picture that you had a little reference next to futures, which said ".then". That is in <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2015/p0159r0.html">the concurrency TS</a>, which you haven't written down there.
 </p><p id="pBlue">Timo: The extensions to futures, right? Yes, .then of futures is definitely needed, and also a correct futures implementation. I don't know if you know about the bugs that are in there.
 </p><p id="pGreen">Anthony: Yes.
 </p><p id="pBlue">Timo: Really difficult. Yes. And I am really looking forward to the async await, or co_await.
-</p><p id="pGreen">Anthony: Yes, co_await was the keyword for the co-routines. Whether co_await can already be used depends on the function you are using it with; whether it is just a single-threaded co-routine or whether it has got an asynchronous call under the hood. 
+</p><p id="pGreen">Anthony: Yes, co_await was the keyword for the coroutines. Whether co_await can already be used depends on the function you are using it with; whether it is just a single-threaded coroutine or whether it has got an asynchronous call under the hood. 
 
-</p><p id="pBlack">(At 30:30 mp3)
+</p><p id="pBlack">(At 34:30)
 </p><p id="pPurple">Other: Are you aware of any new parallel developments in the C++ world that are coming in the near future?
-</p><p id="pGreen">Anthony: Well. So the C++17 support is coming, with the parallel STL. I know that the Microsoft team is actively working on it, and the team behind HPX at Stellar Group -- if you haven't yet got a C++17 compiler with other bits than shared mutexes and stuff. So there's few bits coming down there. Then there is the all-known discussion: the executor proposal [http://wg21.link/p0433], which is things like thread pools and how to build your own custom thread pool, and general specifying aid to run your code. How to specify your tasks. And then you use an executor to specify where those tasks are run.
+</p><p id="pGreen">Anthony: Well. So the C++17 support is coming, with the parallel STL. I know that the Microsoft team is actively working on it, and the team behind HPX at Stellar Group -- if you haven't yet got a C++17 compiler with other bits than shared mutexes and stuff. So there's few bits coming down there. Then there is the all-known discussion: <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4242.html">the executor proposal</a>, which is things like thread pools and how to build your own custom thread pool, and general specifying aid to run your code [implementations: <a href="https://github.com/executors/issaquah_2016">https://github.com/executors/issaquah_2016</a>, <a href="https://github.com/chriskohlhoff/executors">https://github.com/chriskohlhoff/executors</a>]. How to specify your tasks. And then you use an executor to specify where those tasks are run.
 </p><p id="pBlue">Timo: It is definitely needed because in my observation, there are now many libraries that support parallelization, but none of them work together, right?
-</p><p id="pGreen">Anthony: Yes. But if you use boost:asio, then that has a set of executors in there, the strands and the thread_pools and that sort of stuff.
+</p><p id="pGreen">Anthony: Yes. But if you use <a href="http://www.boost.org/doc/libs/master/doc/html/boost_asio.html">Boost.Asio</a>, then that has a set of executors in there, the <a href="http://www.boost.org/doc/libs/master/doc/html/boost_asio/overview/core/strands.html">strands</a> and the <a href="http://www.boost.org/doc/libs/master/doc/html/boost_asio/overview/core/threads.html">thread_pools</a> and that sort of stuff.
 </p><p id="pBlue">Timo: Yes, I use that a lot.
 </p><p id="pGreen">Anthony: The idea is then to extend that it covers more options as well.
 </p><p id="pBlue">Timo: Oh, cool.
 </p><p id="pGreen">Anthony: And how you provide all the options; I think the current proposal ends up with you having about 50 customization points, which makes it a bit daunting: Which things do I use? And if I am trying to use it, which one do I need to implement? It is quite complex trying to get a framework that suits many people.
 </p><p id="pPurple">Other: Yes. And I think thread pools is an important missing piece, because otherwise, if you are too successful with your parallelization, you overcommit on your processor, and it is a real danger that I have seen with big applications. Like you have two independent parts that are parallelized and both try to get all the resources.
-</p><p id="pBlue">Timo: Yes. And one uses OpenMP parallelization, the other boost::threads, and the third, i don't know, all different kinds of threads. And then it gets really daunting. So, in my feeling, even though the table is covered, there are so many facets of parallelization with C++. Since we are so close to the metal, you can just argument wanting to do all of these things. If you only have a high level abstraction, then you can't go down deep into these things, right?
+</p><p id="pBlue">Timo: Yes. And one uses OpenMP parallelization, the other <a href"http://www.boost.org/doc/libs/master/doc/html/thread.html">Boost.Thread</a>, and the third, i don't know, all different kinds of threads. And then it gets really daunting. So, in my feeling, even though the table is covered, there are so many facets of parallelization with C++. Since we are so close to the metal, you can just argument wanting to do all of these things. If you only have a high level abstraction, then you can't go down deep into these things, right?
 </p><p id="pGreen">Anthony: Yes.
 </p><p id="pBlue">Timo: Even though there are so many facets, I think many of them are really useful for what you need. And you have all of them. Other languages don't have the wealth of parallelization possibilities that we have.
 </p><p id="pGreen">Anthony: That is certainly true.
-</p><p id="pBlue">Timo: That is definitely also one of the advantages that C++ has for parallelization, that we are missing on our table. But it remains really difficult to write good and fast parallel code, but we have no other choice, right?
+</p><p id="pBlue">Timo: That is definitely also one of the advantages that C++ has for parallelization, that we are missing on our table.
+
+</p><p id="pBlack">(At 38:20)
+</p><p id="pBlue">Timo: But it remains really difficult to write good and fast parallel code, but we have no other choice, right?
 </p><p id="pGreen">Anthony: Yes. There is the challenge. I know that the Microsoft team is working on the parallel STL because Billy on the team would say: "The implementations I come up with at the start are actually slower than the serial code until they're processing containers with many elements, because of the extra complexity of doing parallelization." So trying to get it right is a real challenge.
 </p><p id="pBlue">Timo: So the fastest processors with the fastest clock cycles have 4 GHz, right?
 </p><p id="pGreen">Anthony: Yes.
@@ -176,11 +182,11 @@ So other advantages are the usual things: zero cost abstraction and full control
 </p><p id="pGreen">Anthony: Probably not. Not until they come up with better cooling.
 </p><p id="pBlue">Timo: Yes, but they may, right? They are really good at pushing it even further and further. But there is a limit. And then the only other way to get performance increase is parallelization, right?
 </p><p id="pGreen">Anthony: Yes.
-</p><p id="pBlue">Timo: There is no away around it. And even though we have so many possibilities now, it remains difficult. I guess I really have to get your book [https://www.cplusplusconcurrencyinaction.com] and we are probably going have a course for students to do C++ performance coding, and parallelization -- especially correctly parallelizing things -- is going to be a big part of it.
-</p><p id="pGreen">Anthony: Ok. Then you should get my book. There is a second edition that is currently only available as pdf because it is not finished yet.
+</p><p id="pBlue">Timo: There is no away around it. And even though we have so many possibilities now, it remains difficult. I guess I really have to get <a href="https://www.cplusplusconcurrencyinaction.comhttps://www.cplusplusconcurr">your book</a> and we are probably going have a course for students to do C++ performance coding, and parallelization -- especially correctly parallelizing things -- is going to be a big part of it.
+</p><p id="pGreen">Anthony: Ok. Then you should get my book. There is <a href="https://www.manning.com/books/c-plus-plus-concurrency-in-action-second-edition">a second edition that is currently only available as pdf because it is not finished yet</a>.
 </p><p id="pBlue">Timo: Ok, cool. Any questions left?
 </p><p id="pPurple">Other: Well, I missed the beginning, I was at the Robert Ramey table. I am happy that the technical part was no problem, and you seem to have covered a lot of topics -- when I am looking at the table and what I have heard at the end. Great. So, we have recorded this, I am really curious and will listen to it. And I will get back to you and show it to you before I publish it, so you can check it.
 </p><p id="pGreen">Anthony: Ok. It was nice speaking to you.
 </p><p id="pBlue">Timo: Yes, definitely. It was nice speaking to you, thank you.
-</p><p id="pGreen">Anthony: Bye bye.
+    </p><p id="pGreen">Anthony: Bye bye.</p>
 </body></html>

@@ -6,11 +6,13 @@
   <body>
     <h1>Interview with Robert Ramey about libraries and frameworks</h1>
     <h2>C++ World Caf&eacute at the C++ UG Karlsruhe on June 14th 2017</h2>
+   <p><img src="pics/RobertRamey.jpg" alt="Robert Ramey" style="float:left;height:100px;margin:0px 10px;border-color:green;" border="4">
     <span id="pGreen">Robert: <a href="http://www.boost.org/users/people/robert_ramey.html">Robert Ramey</a> (via Skype)
-</br></span><span id="pBlue">Ralf: <a href="https://www.linkedin.com/in/ralf-mikulla-01329871/?ppe=1">Ralf Mikulla</a> (table host)
-</br></span><span id="pPurple">Other: other participants
+</br></br></span><span id="pBlue">Ralf: <a href="https://www.linkedin.com/in/ralf-mikulla-01329871/?ppe=1">Ralf Mikulla</a> (table host)
+</br></br></span><span id="pPurple">Other: other participants
 </span>
-
+</p>
+</br>
 <p id="pBlack">Greetings.
 </p><p id="pBlue">Ralf: I try to explain what's going on here: The people all discussed one subject and one question, "What about libraries and frameworks? Which libraries do you use, how do you use them, what problems do you have?". To summarize it: There were totally different people here, some students but also some professional software engineers. I identified four topics:
 </br>1) Triangle between learning, enabling, and efficiency. There were some people who said: "Well, we don't use any other frameworks or libraries because we want to write them ourselves." A typical C++ beginners attitude, I would say. Others said: we need them, they enable us to do something; and then comes the question "how efficient is this?".
@@ -58,5 +60,5 @@ The first question was about whether it is useful to use libraries as opposed to
 </p><p id="pGreen">Robert: Okay, so let's talk about that for a second. Let's talk about C++ and typical C++ libraries. C++ is a tremendously mixed language, and it varies depending on the compiler and platform. Some people like using wide characters, some people not. Some people are compiling their library as a DLL, other people as a static library. Some use certain particular compile time switches, some don't use RTTI, some don't use exceptions. So when you get a library package, it's not like you get an executable that is already built to run on your system. It's really a building block, and you are probably going to have to alter some settings in order to make it work with your code. Maybe there are compiler settings, maximum stack length, I don't know. So, once you look at all the possible combinations, you begin to understand that there's no way that I can test ahead of time for every possible configuration that people might have. The serialization library is in a certain state, and it's been there for 13 years, and now somebody comes up: "Ah, we can build C++ on Android". And Android has it's own set of quirks, which I am not familiar with. There is no way that I can know ahead of time that somebody is going to invent a system called Android and that it's got its own special set of features. And then there is this other issue that a particular library, eg serialization, depends on the STL library, which comes from your vendor, and also depends on operating system calls -- for failure characters/error codes, input/output etc. So the idea that we can get something pretested just as when extending a part of the source code that we presume has already been tested, is not really realistic because your combination of settings and features and etc is not something that I have included in my test set. So you can't really depend on me to do that part for you. But what you should be able to ask me to do is say "hey, when I download a package I should be able to get a push button test". I think that is a reasonable expectation that we really will be able to deliver.
 </p><p id="pBlue">Ralf: As I said before, you are responsible for the software you are delivering. So you should make your tests, which are in your environment. Beyond that, I fully agree.
 </p><p id="pGreen">Robert: Ok. Well, that was easy.
-</p><p id="pPurple">Other: It was really fun and informative. I am really happy about your responses, I found them really great, and also the moderation was good. I think this was a great Skype session. 
+    </p><p id="pPurple">Other: It was really fun and informative. I am really happy about your responses, I found them really great, and also the moderation was good. I think this was a great Skype session.</p>
 </body></html>
