@@ -1,0 +1,167 @@
+How to become a better C++ developer?
+
+
+Round 0
+=======
+
+Follow the conventions of the C++ standard library?
+---------------------------------------------------
+e.g. naming conventions, techniques / paradigms
+
+- This would lead to homegeneity of code.
+- Compare the situation to Java, which has a more widely accepted common style.
+- When the team decides to stick to conventions, they'll become a better C++ dev team.
+- Also, (extern) people can be brought into the team/project more easily when using widespread
+  conventions.
+- On the other hand, there are many different styles, many of which can be readable / adequate.
+
+
+Encouragement, take action
+--------------------------
+
+- learn the languages, don't just port patterns from one to another language
+- you have to learn the language on your own, take action!
+- look around in other projects, broaden your horizon
+- play around with techniques, vary your approaches
+- learn about design decisions e.g. in the language
+- know how to search (e.g. in google), know the sources
+- know your tool chain
+- check your stereotypes, question your possibly bad information
+- you need to invest time, or you will get stuck in your current frame of mind
+
+
+Some more thoughts
+------------------
+
+- C++ is a multi-paradigm language, you should keep that in mind and leverage it
+- knowing paradigms is important, adapt to use case
+- a better developer in general is also a better C++ developer
+- mentorship / pair programming can help becoming better
+- C++ is unique in that it has many pitfalls
+
+
+How to know about the limits of tools?
+--------------------------------------
+
+- Try cross-platform development, with many different tool versions (gcc vs msvc)
+
+
+Open questions
+--------------
+
+- Is there a good, free, (online, ) modern C++ tutorial?
+- Good C++ techniques often increase compile time, what to do?
+
+
+
+
+Round 1
+=======
+
+Am I a bad C++ dev for not using the std library?
+-------------------------------------------------
+
+- Depends on your platform (e.g. microcontroller)
+- Not using the standard library can spread like a disease, i.e. people not using it even
+  if they could benefit.
+
+
+What is a good C++ developer?
+-----------------------------
+
+- performance is important in C++, but even more are: maintainability, readability,
+  modifiability, extensibility
+- know the effects of what you're doing, in all the different aspects (maintainability,
+  readability, ...)
+- reflect about what you're doing
+- mindset: if you can learn to like the language, you'll get better
+- a will to improve is absolutely necessary; requires curiousness and ambition
+- different kinds of C++: embedded, enterprise, metaprogramming lib -> therefore different
+  kinds of "good C++ dev"
+
+
+Are there specific character traits which are beneficial?
+---------------------------------------------------------
+- freak: love for details, perfection down to the metal (there's no VM doing things for you)
+- need to keep many things in your head, so you need to be able to keep all in your mind
+- domain doesn't take over language, both need your attention
+- Know when not to optimize / go down to the metal --> discipline
+
+
+How to learn from complexity and the problems it creates?
+--------------------------------------------------------------
+
+- open source? might be too complicated for beginners
+- get a mentor, if not available in person, then from books/videos/... like Scott Meyers?
+  - How to find out if a mentor/book/... is good when you're a beginner?
+    - for books, look for reviews
+  - How to know if it's up to date?
+    - minimum C++11 for non-expert books
+  - Effective * books
+
+
+What's the difference between a good dev in general and a good C++ dev specifically?
+------------------------------------------------------------
+
+- performance is relevant, therefore need more in-depth knowledge
+- tooling and libs need more effort in C++
+- need more custom low-level work, not so many frameworks
+- C++: you have abstractions, but you need to get down to the metal sometimes
+
+
+Open questions
+--------------
+
+- How important is knowledge in various layers of C++? (compiler, linker, language, libraries, tools)
+- There seems to be a large gap between beginners and experts in C++ (see SO questions), but
+  how to bridge this gap?
+- Can online code kata platforms help becoming a better C++ dev?
+- Dark matter programmers (which take in information but don't give back to the community)
+  are abundant in C++; very different in Java, compare user group numbers. How do they
+  relate to becoming a better C++ dev? Does being a dark matter programmer impede you in
+  becoming a better C++ dev?
+
+
+
+
+Round 2
+=======
+
+Abstractions
+------------
+
+good C++ dev: needs to know when to abstract and when not to
+
+- when you don't need to abstract, stay away from low-level --> this needs to be taught,
+  teaching not from bottom up but maybe top down
+- selecting data structures is very important but not taught well enough
+- there is too much old knowledge and dealing with pointers (`new`, low-level stuff)
+- Good C++ devs know: What do I need, and where to get it from
+
+
+Do I need to know C++11/4/7 to be a good C++ developer?
+-------------------------------------------------------
+
+- You can write good code in C++98
+- we get simplicity from modern C++
+
+
+Open questions
+--------------
+
+- Other people are using old tools like compiler which don't support C++98, but we need to
+  be compatible to them -- so what to do? There's no abi guarantees for stdlib, for example.
+- Literature and open source contributions -- how important are they?
+- Is the difficulty of using libraries in the way of good teaching? I.e. teaching the
+  low-level stuff has much less prerequisites.
+
+
+A good C++ dev in a team: what do they do in/with the team?
+------------------------------------------
+
+- code reviews
+- clean code
+- documentation
+- communicate, exchange
+- help other people e.g. with new language features
+- learning sessions / talks (e.g. features: advantages / disadvantages / where, when to use)
