@@ -1,0 +1,624 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="cm_slidy/styles/slidy.css" type="text/css" />
+<link rel="stylesheet" href="cm_slidy/styles/clausmark.css" type="text/css" />
+<!--<script src="markdown-js/markdown.min.js" type="text/javascript"></script>-->
+<script src="showdown-1.9.0/showdown.min.js" type="text/javascript"></script>
+<script src="cm_slidy/scripts/slidy.js" charset="utf-8" type="text/javascript"></script>
+<script charset="utf-8" type="text/javascript"></script>
+<style>
+		img[alt=poster] {
+			display: block;
+			max-width: 80%;
+			max-height: auto;
+			align-content: 
+			//margin: auto;
+			//float: none!important;
+		}
+</style>
+<style type="text/css">
+
+table {
+  padding: 0;border-collapse: collapse; }
+
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+</style>
+<!--
+<style type="text/css">
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: black;
+	background: none;
+	text-shadow: 0 1px white;
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+@media print {
+	code[class*="language-"],
+	pre[class*="language-"] {
+		text-shadow: none;
+	}
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #f5f2f0;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: slategray;
+}
+
+.token.punctuation {
+	color: #999;
+}
+
+.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #905;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #690;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+	color: #a67f59;
+	background: hsla(0, 0%, 100%, .5);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+	color: #07a;
+}
+
+.token.function {
+	color: #DD4A68;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+	color: #e90;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+</style>
+
+<style type="text/css">
+pre.line-numbers {
+	position: relative;
+	padding-left: 3.8em;
+	counter-reset: linenumber;
+}
+
+pre.line-numbers > code {
+	position: relative;
+}
+
+.line-numbers .line-numbers-rows {
+	position: absolute;
+	pointer-events: none;
+	top: 0;
+	font-size: 100%;
+	left: -3.8em;
+	width: 3em; /* works for line-numbers below 1000 lines */
+	letter-spacing: -1px;
+	border-right: 1px solid #999;
+
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+
+}
+
+	.line-numbers-rows > span {
+		pointer-events: none;
+		display: block;
+		counter-increment: linenumber;
+	}
+
+		.line-numbers-rows > span:before {
+			content: counter(linenumber);
+			color: #999;
+			display: block;
+			padding-right: 0.8em;
+			text-align: right;
+		}
+</style>
+
+<style type="text/css">
+div.prism-show-language {
+	position: relative;
+}
+
+div.prism-show-language > div.prism-show-language-label {
+	color: black;
+	background-color: #CFCFCF;
+	display: inline-block;
+	position: absolute;
+	bottom: auto;
+	left: auto;
+	top: 0;
+	right: 0;
+	width: auto;
+	height: auto;
+	font-size: 0.9em;
+	border-radius: 0 0 0 5px;
+	padding: 0 0.5em;
+	text-shadow: none;
+	z-index: 1;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	-webkit-transform: none;
+	-moz-transform: none;
+	-ms-transform: none;
+	-o-transform: none;
+	transform: none;
+}
+</style>
+-->
+</head>
+<body>
+	
+<h1>Test</h1>
+<div id='render-area'>
+</div>
+<code id="report-content" style="display:none;">
+</code>
+</body>
+<script type="text/javascript">
+
+var backgroundDiv = `
+<div class="background">
+	<div>
+		<div>
+			<object id="head-logo" title="Clausmark Logo" type="image/svg+xml" data="cm_slidy/graphics/cm/CMLogo.svg">
+				<img src="cm_slidy/graphics/cm/CMLogo.svg" alt="Clausmark Logo" id="head-logo-fallback" />
+			</object>
+		</div>
+		<img id="head-footer" src="cm_slidy/graphics/cm/headerline.png"/>
+	</div>
+</div>
+`;
+
+var markdownContent = `# "Leak-Freedom in C++ ... By Default" aus Sicht eines Qt Users
+
+<center>
+Ein kurze Betrachtung des Vortrags
+
+Leak-Freedom in C++ ... By Default
+
+von Herb Sutter @CppCon 2016
+
+aus dem Blickwinkel eines Qt Users
+
+Quellen:
+
+1. Slides: [https://github.com/CppCon/CppCon2016/raw/master/Presentations](https://github.com/CppCon/CppCon2016)
+2. YouTube: [CppCon 2016: Herb Sutter \u{201c}Leak-Freedom in C++... By Default.\u{201d}](https://www.youtube.com/watch?v=JfmTagWcqoE)
+</center>
+
+# Herb Sutter: "Leak Freedom in C++" Poster
+
+![poster](LeakFreedomC++.png)
+<!--
+| Strategy | Natural Examples | Cost | Rough frequency |
+|:---------|:-----------------|:-----|:----------------|
+||||
+| **1. Prefer scoped lifetime** by default (locals, members) | Local and member objects \u{2013} directly owned | **Zero**: Tied directly to another lifetime | O(80%) of objects |
+||||
+| **2. Else prefer \u{60}make_unique\u{60} & \u{60}unique_ptr\u{60} or a container**, if the object must have its own lifetime (i.e., heap) and ownership can be unique w/o owning cycles | Implementations of trees, lists | Same as new/delete & malloc/free, **no extra cost compared to raw pointer**,  Automates simple heap use in a library | O(20%) of objects (together with 3.)|
+||||
+| **3. Else prefer \u{60}make_shared\u{60} & \u{60}shared_ptr\u{60}**, if the object must have its own lifetime (i.e., heap) and shared ownership w/o owning cycles | Node-based DAGs, incl. trees that share out references | Same as manual reference counting (RC). Automates shared object use in a library   |                 |
+
+- **Don\u{2019}t use owning raw *\u{2019}s** == don\u{2019}t use explicit delete
+- **Don\u{2019}t create ownership cycles** across modules by owning \u{201c}upward\u{201d} (violates layering) Use weak_ptr to break cycles
+-->
+
+# Leak Freedom Part 1: Scoped Lifetime
+
+## Klassenattribute "Hat-ein"
+
+	class MyClass
+	\u{7b}
+	...
+	    Data m_data;
+	\u{7d};
+
+## Lokale Variable
+
+	void doSomething()
+	\u{7b}
+	    Data data = ...;
+	    ...
+	\u{7d}
+
+## Closure
+
+	auto function( Data data )
+	\u{7b}
+		Data data = ...;
+
+		return [data]()\u{7b} ... \u{7d};
+	\u{7d}
+ 
+# Leak Freedom Part 2: unique_ptr<> - entkoppelte Scoped Lifetime
+
+## Klassenattribute, enkoppeltes "Hat-ein"
+    
+	class MyClass
+	\u{7b}
+	...
+	     MyClass( size_t array size )
+	        : m_array(make_unique<Data[]>(size)
+
+	...
+	    std::unique_ptr<Data>             m_optionalData;
+	    std::unique_ptr<HandlerInterface> m_handler;
+	    std::unique_ptr<Data[]>           m_array;
+	\u{7d};
+
+* optional
+* polymorph
+* dynamisches Array fester Größe
+* benötigt u.U. Spezialbehandlung von copy und move operator/c'tors
+
+# Leak Freedom Part 2: unique_ptr<> - Pimpl-Idiom
+
+	class MyClass
+	\u{7b}
+	    ~MyClass(); // don't define
+	...
+	private:
+	    class Impl;
+	    const std::unique_ptr<Impl> m;
+	\u{7d}
+
+	~MyClass::MyClass() = default;
+
+* Man beachte das 'const'.
+* Bei Verwendung mit forward declarations muss der d'tor in der .cpp Datei definiert sein
+
+#  Leak Freedom Part 2: unique_ptr<> - Andere Verwendungen
+
+## Factory
+
+* Jede Factory Methode sollte einen unique_ptr zurückgeben
+
+##  Datenstrukturen
+
+* verkettete Listen
+* Bäume
+* Array von Heap Objekten
+* Probleme:
+    * Stack-Overflow on destruction
+    * Funktioniert nur wenn keine "strong references" herausgegeben werden
+
+#  Leak Freedom Part 3: shared_ptr<> kurz angerissen...
+
+## Datenstrukturen
+
+* Caches
+* zyklenfreie Graphen
+* Container welche "strong references" zurückgeben
+
+## Vermeidung von Leaks
+
+Achtung: **shared_ptr<> Zyklen erzeugen leaks**
+
+Vermeidungungsstrategien:
+
+1. keine shared_ptr an unbekannten code oder über Modulgrenzen herausgeben
+2. keine shared_ptr in einem Callback speichern (weak_ptr verwenden)
+
+# Folgerungen
+
+Bei konsequenter Anwendung reicht der vorliegede Referenztyp aus um die Lifetime Verwantwortlichkeit zu beurteilen:
+
+1. T* oder T& heißt: **No Ownership**
+    - Lifetime muss über gesamte Lebensdauer der Referenz gültig sein
+    - => nicht ohne weitered geeignet für thread-shared objects
+2. unique_ptr<> heißt: **Sole Ownership**
+    - \u{60}new\u{60} ist ausschließlich mit unique_ptr<>/shared_ptr<> erlaubt
+    - ausleihen mittels \u{60}get()\u{60}
+3. shared_ptr<>, weak_ptr<> heißt: **Shared Ownership**
+    - thread-sharable
+
+**Das \u{60}delete\u{60} statement wird nicht mehr benötigt!**
+
+# Anwendung mit Legacy Komponenten
+
+<center>Qt</center> 
+
+# Anwendung mit Legacy Komponenten: Qt
+
+## Vater/Kind Beziehung
+
+* Das root-Object hat keinen Vater
+* Kein Kind überlebt den Vater
+
+## Zeigerklassen in Qt
+
+|Qt|C++ Äquivalent |  |
+|---|---|---|
+| QScopedPointer<> | std::unique_ptr<>| austauschbar |
+| QSharedPointer<> , QWeakPointer<> | std::shared_ptr<>, std::weak_ptr<> | austauschbar |
+| QPointer<> | - | guarded \u{60}QObject*\u{60} |
+
+# Qt: Function Scope
+
+Man muss sich nur um den Lebenszyklus des Wurzel-Objects kümmern:
+
+	void function()
+	\u{7b}
+	    auto dialog = std::make_unique<QDialog, UniquePtrDeleteLater>(nullptr);
+	    auto lineEdit = new QLineEdit( dialog.get() );
+	    ...
+	    dialog->exec();
+	\u{7d}
+
+* Immer anwendbar wenn man sonst ein deleteLater() verwendet
+* \u{60}delete\u{60} Fall analog
+
+Prinzipiell OK, **aber**...
+
+# Qt: Implicitly shared ownership?
+
+Was ist das Problem?
+
+	void function()
+	\u{7b}
+	    auto dialog = std::make_unique<QDialog,UniqePtrDeleteLater>(nullptr);
+	    dialog->setAttribute(Qt::WA_DeleteOnClose);
+	    ...
+	    dialog->exec();
+	\u{7d}
+
+# Qt: Implicitly shared ownership?
+
+User erzeugen spontane Events die zur Vernichtung führen können...
+
+	void function()
+	\u{7b}
+	    auto dialog = std::make_unique<QDialog,UniqePtrDeleteLater>(nullptr);
+	    dialog->setAttribute(Qt::WA_DeleteOnClose);
+	    ...
+	    dialog->exec();
+	    // CRASH AT END OF SCOPE
+	\u{7d} 
+
+... und QEventLoop war schneller
+
+# Qt:  Class Scope 1 - Traditionell
+
+	class MyWidget : public QWidget
+	\u{7b}
+	    Q_OBJECT
+	public:
+	    MyWidget( QObject parent=nullptr )
+	        : QWidget(parent)
+	        , m_label(new QLabel(this))
+	        , m_lineEdit(new QLineEdit(this))
+	    \u{7b}
+	        new QHBoxLayout(this);
+	        layout()->addWidget(m_label);
+	        layout()->addWidget(m_lineEdit);
+	    \u{7d}
+	    
+	    QLabel*    m_label;
+	    QLineEdit* m_lineEdit;
+	\u{7d} 
+
+## Qt: Class Scope 2 - Experimentell
+
+	class MyWidget : public QWidget
+	\u{7b}
+	    Q_OBJECT
+	public:
+	    MyWidget( QObject parent=nullptr )
+	        : QWidget(parent)
+	        , m_label(new QLabel(this))
+	        , m_lineEdit(new QLineEdit(this))
+	    \u{7b}
+	        new QHBoxLayout(this);
+	        layout()->addWidget(m_label.get());
+	        layout()->addWidget(m_lineEdit.get());
+	    \u{7d}
+	    
+	    std::unique_ptr<QLabel> m_label;
+	    std::unique_ptr<QLineEdit> m_lineEdit;
+	\u{7d} 
+
+# Qt:: Class Scope - Destruction
+
+~QObject löscht all seine Kinder mittels \u{60}qDeleteAll(...)\u{60}
+
+## Traditionell
+
+	~MyWidget()
+		~QWidget()
+			~QObject():
+	            qDeleteAll(children());
+	                ...
+	                ~QLabel()
+	                ~QLineEdit()
+
+## Experimentell
+
+	~MyWidget() 
+	    ~QLabel() ... ~QObject()
+	    ~QLineEdit()
+	    ... 
+		~QWidget()
+			~QObject():
+
+**Die Verwendung von \u{60}std::unique_ptr\u{60} verändert die Reihenfolge der Destruktorenaufrufe**
+
+# Qt: Callbacks
+
+Benutzung von \u{60}QPointer<>\u{60} in lambda Ausdrücken vermeidet Probleme:
+
+	class MyClass : QObject
+	\u{7b}
+	public:
+	    MyClass(...)
+	    \u{7b}
+	        ...
+	        connect( this, &MyClass::someSignal,
+	            [obj=make_qpointer(this)] () 
+	            \u{7b}
+	                if( obj )
+	                \u{7b}
+	                    obj->doSomething();
+	                \u{7d}
+	            \u{7d}
+	        );
+	    \u{7d}
+	    
+	\u{7d};
+
+# Zusammenfassung
+
+## Allgemein
+
+1. Verwende "Scoped Lifetime" wann immer möglich
+2. Sonst verwende unique_ptr<> 
+    - optionale attribute
+    - polymorphe attribute
+    - sonstige heap allocated objects
+3. Verwende shared_ptr<> mit Bedacht
+4. Verwende Raw Pointer und Referenzen für Zugriff
+    * Single Thread Context
+    * Scope Dauer
+
+## Mit QObject
+
+1. Verwende "Traditional" Style für QObject-Hierarchien
+2. Vermeide setAttribute(Qt::WA_DeleteOnClose) in Konstruktoren
+3. Verwende QPointer<> für \u{60}QObject\u{60} Referenzen
+4. Verwende unique_ptr mit einem custom deleter (deleteLater())
+5. Rufe **niemals** direkt \u{60}deleteLater()\u{60} mit einem unique_ptr<> auf`;
+/*
+'<div class="background">'
+  	+ '<div><div><object id="head-logo" title="Clausmark Logo" type="image/svg+xml" data="cm_slidy/graphics/cm/CMLogo.svg">'
+  	+ '<img src="cm_slidy/graphics/cm/CMLogo.svg" alt="Clausmark Logo" id="head-logo-fallback" />'
+  	+ '</object></div><img id="head-footer" src="cm_slidy/graphics/cm/headerline.png"/></div></div>' 
+*/
+function renderMarkdown()
+{
+	var converter = new showdown.Converter();
+	converter.setOption("tables",true);
+	let md = document.getElementById('report-content').innerHTML;
+	let html = converter.makeHtml(markdownContent)
+	document.body.innerHTML = backgroundDiv + html;
+}
+renderMarkdown();
+slidy_initialize();
+</script>
+</html>
